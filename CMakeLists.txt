@@ -9,7 +9,7 @@ project(EASTL CXX)
 # Options
 #-------------------------------------------------------------------------------------------
 option(EASTL_BUILD_BENCHMARK "Enable generation of build files for benchmark" OFF)
-option(EASTL_BUILD_TESTS "Enable generation of build files for tests" OFF)
+#option(EASTL_BUILD_TESTS "Enable generation of build files for tests" OFF)
 option(EASTL_STD_ITERATOR_CATEGORY_ENABLED "Enable compatibility with std:: iterator categories" OFF)
 
 
@@ -47,9 +47,9 @@ if(EASTL_BUILD_BENCHMARK)
     add_subdirectory(benchmark)
 endif()
 
-if(EASTL_BUILD_TESTS)
-    add_subdirectory(test)
-endif()
+#if(EASTL_BUILD_TESTS)
+#    add_subdirectory(test)
+#endif()
 
 #-------------------------------------------------------------------------------------------
 # Defines
@@ -70,14 +70,14 @@ target_include_directories(EASTL PUBLIC include)
 #-------------------------------------------------------------------------------------------
 # Dependencies
 #-------------------------------------------------------------------------------------------
-FetchContent_Declare(
-  EABase
-  GIT_REPOSITORY https://github.com/electronicarts/EABase.git
-  GIT_TAG        0699a15efdfd20b6cecf02153bfa5663decb653c
-  GIT_SUBMODULES "" # This should be temporary until we update the cyclic submodule dependencies in EABase.
-)
+#FetchContent_Declare(
+#  EABase
+#  GIT_REPOSITORY https://github.com/electronicarts/EABase.git
+#  GIT_TAG        0699a15efdfd20b6cecf02153bfa5663decb653c
+#  GIT_SUBMODULES "" # This should be temporary until we update the cyclic submodule dependencies in EABase.
+#)
 
-FetchContent_MakeAvailable(EABase)
+#FetchContent_MakeAvailable(EABase)
 
 target_link_libraries(EASTL EABase)
 
